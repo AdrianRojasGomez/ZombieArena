@@ -147,7 +147,25 @@ XCOPY "$(ProjectDir)res\" "$(TargetDir)res\" /e /h /y /s
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Entities\Player.cpp" />
     <ClCompile Include="src\Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Entities\Player.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\assets\graphics\ammo_icon.png" />
+    <Image Include="res\assets\graphics\ammo_pickup.png" />
+    <Image Include="res\assets\graphics\background.png" />
+    <Image Include="res\assets\graphics\background_sheet.png" />
+    <Image Include="res\assets\graphics\bloater.png" />
+    <Image Include="res\assets\graphics\blood.png" />
+    <Image Include="res\assets\graphics\chaser.png" />
+    <Image Include="res\assets\graphics\crawler.png" />
+    <Image Include="res\assets\graphics\crosshair.png" />
+    <Image Include="res\assets\graphics\health_pickup.png" />
+    <Image Include="res\assets\graphics\player.png" />
+    <Image Include="res\assets\graphics\sample.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
