@@ -11,12 +11,12 @@ public:
 	void Spawn(sf::IntRect arena, sf::Vector2f resolution, int tileSize);
 	void ResetPlayerStats();
 
-	bool hit(sf::Time timeHit);
-	sf::Time getLastHitTime();
-	sf::FloatRect GetPosition();
-	sf::Vector2f GetCenter();
-	float GetRotation();
-	sf::Sprite GetSprite();
+	sf::Time GetLastHitTime() { return m_LastHit; }
+	bool Hit(sf::Time timeHit);
+	sf::FloatRect GetPosition() { return m_Sprite.getGlobalBounds(); }
+	sf::Vector2f GetCenter() { return m_Position; }
+	float GetRotation() { return m_Sprite.getRotation(); }
+	sf::Sprite GetSprite() { return m_Sprite; }
 
 	void MoveLeft();
 	void MoveRight();
@@ -32,7 +32,7 @@ public:
 	void UpgradeHealth();
 
 	void IncreaseHealthLevel(int amount);
-	int GetHealth();
+	int GetHealth() { return m_Health; }
 
 
 
