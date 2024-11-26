@@ -133,7 +133,23 @@ void Player::StopDown()
 
 void Player::UpgradeSpeed()
 {
+	m_Speed += (START_SPEED * 0.2f);
 }
+
+void Player::UpgradeHealth()
+{
+	m_MaxHealth += (START_HEALTH * 0.2f);
+}
+
+void Player::IncreaseHealthLevel(int amount)
+{
+	m_Health += amount;
+
+	if (m_Health > m_MaxHealth)
+		m_Health = m_MaxHealth;
+}
+
+
 
 
 
