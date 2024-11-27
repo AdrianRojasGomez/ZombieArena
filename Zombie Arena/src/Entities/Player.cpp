@@ -11,11 +11,10 @@ Player::Player() :
 	if (m_Texture.loadFromFile("res/assets/graphics/player.png"))
 	{
 		m_Sprite.setTexture(m_Texture);
+		m_Sprite.setOrigin(25, 25);
 	}
 	else
-		std::cout << " ERROR LOADING PLAYER";
-
-	m_Sprite.setOrigin(25, 25);
+		std::cout << " ERROR LOADING PLAYER SPRITE";
 }
 
 Player::~Player()
@@ -53,9 +52,10 @@ void Player::Update(float elapsedTime, sf::Vector2i mousePosition)
 		m_Position.y = m_Arena.top + m_Tilesize;
 
 	//Calculate the player's angle
-	float angle = (atan2(mousePosition.y - m_Resolution.y / 2, mousePosition.x - m_Resolution.x / 2)
+	float angle = (atan2(mousePosition.y - m_Resolution.y / 2,
+		mousePosition.x - m_Resolution.x / 2)
 		* 180) / 3.141;
-
+	m_Sprite.setRotation(angle);
 }
 
 void Player::Spawn(sf::IntRect arena, sf::Vector2f resolution, int tileSize)
@@ -114,7 +114,7 @@ void Player::MoveUp()
 
 void Player::MoveDown()
 {
-	m_DownPressed = false;
+	m_DownPressed = true;
 }
 
 void Player::StopLeft()

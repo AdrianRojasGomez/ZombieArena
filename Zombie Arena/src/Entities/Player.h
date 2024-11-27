@@ -37,7 +37,7 @@ public:
 
 
 private:
-	const float START_SPEED = 100.0f;
+	const float START_SPEED = 200.0f;
 	const float START_HEALTH = 100.0f;
 
 	sf::Vector2f m_Position;
@@ -45,12 +45,12 @@ private:
 	sf::Sprite m_Sprite;
 	sf::Vector2f m_Resolution;
 	sf::IntRect m_Arena;
-	int m_Tilesize;
+	int m_Tilesize = 0;
 
-	bool m_LeftPressed;
-	bool m_RightPressed;
-	bool m_UpPressed;
-	bool m_DownPressed;
+	bool m_LeftPressed = false;
+	bool m_RightPressed = false;
+	bool m_UpPressed = false;
+	bool m_DownPressed = false;
 
 	int m_Health;
 	int m_MaxHealth;

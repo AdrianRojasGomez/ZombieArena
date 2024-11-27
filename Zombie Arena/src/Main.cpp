@@ -52,77 +52,83 @@ int main()
 					state = State::LEVELING_UP;
 				}
 
-			}
+				if (state == State::PLAYING)
+				{
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-			{
-				window.close();
+				}
+
+
 			}
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			window.close();
+		}
+
+		if (state == State::PLAYING)
+		{
+			//WASD Movement
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+				player.MoveUp();
+			else
+				player.StopUp();
+
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+				player.MoveDown();
+			else
+				player.StopDown();
+
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+				player.MoveLeft();
+			else
+				player.StopLeft();
+
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+				player.MoveRight();
+			else
+				player.StopRight();
+		}
+
+		if (state == State::LEVELING_UP)
+		{
+			if (event.key.code == sf::Keyboard::Num1)
+				state = State::PLAYING;
+
+			if (event.key.code == sf::Keyboard::Num2)
+				state = State::PLAYING;
+
+			if (event.key.code == sf::Keyboard::Num3)
+				state = State::PLAYING;
+
+			if (event.key.code == sf::Keyboard::Num4)
+				state = State::PLAYING;
+
+			if (event.key.code == sf::Keyboard::Num5)
+				state = State::PLAYING;
+
+			if (event.key.code == sf::Keyboard::Num6)
+				state = State::PLAYING;
+
 
 			if (state == State::PLAYING)
 			{
-				//WASD Movement
+				//placeholders values
+				arena.width = 500;
+				arena.height = 500;
+				arena.left = 0;
+				arena.top = 0;
 
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-					player.MoveUp();
-				else
-					player.StopUp();
+				int tileSize = 50;
 
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-					player.MoveDown();
-				else
-					player.StopDown();
-
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-					player.MoveLeft();
-				else
-					player.StopLeft();
-
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-					player.MoveRight();
-				else
-					player.StopRight();
+				player.Spawn(arena, resolution, tileSize);
+				clock.restart();
 			}
 
-			if (state == State::LEVELING_UP)
-			{
-				if (event.key.code == sf::Keyboard::Num1)
-					state = State::PLAYING;
-
-				if (event.key.code == sf::Keyboard::Num2)
-					state = State::PLAYING;
-
-				if (event.key.code == sf::Keyboard::Num3)
-					state = State::PLAYING;
-
-				if (event.key.code == sf::Keyboard::Num4)
-					state = State::PLAYING;
-
-				if (event.key.code == sf::Keyboard::Num5)
-					state = State::PLAYING;
-
-				if (event.key.code == sf::Keyboard::Num6)
-					state = State::PLAYING;
-
-
-				if (state == State::PLAYING)
-				{
-					//placeholders values
-					arena.width = 500;
-					arena.height = 500;
-					arena.left = 0;
-					arena.top = 0;
-
-					int tileSize = 50;
-
-					player.Spawn(arena, resolution, tileSize);
-					clock.restart();
-				}
-
-			}
 		}
 
 		//Update the frame
@@ -134,13 +140,14 @@ int main()
 
 			//Fraction of 1 from the delta time
 			float dtAsSeconds = dt.asSeconds();
-
 			//Locate mouse pointer
 			mouseScreenPosition = sf::Mouse::getPosition();
-
 			//convert mouse position to world position based on mainView
 			mouseWorldPosition = window.mapPixelToCoords(sf::Mouse::getPosition(), mainView);
-
+			//Update Player
+			player.Update(dtAsSeconds, sf::Mouse::getPosition());
+			sf::Vector2f playerPosition(player.GetCenter());
+			// Center View around player
 			mainView.setCenter(player.GetCenter());
 		}
 

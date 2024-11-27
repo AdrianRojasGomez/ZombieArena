@@ -27,42 +27,4 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\assets\graphics\ammo_icon.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\ammo_pickup.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\background.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\background_sheet.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\bloater.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\blood.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\chaser.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\crawler.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\crosshair.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\health_pickup.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\player.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-    <Image Include="res\assets\graphics\sample.png">
-      <Filter>Archivos de recursos</Filter>
-    </Image>
-  </ItemGroup>
 </Project>
