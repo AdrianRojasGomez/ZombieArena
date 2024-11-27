@@ -147,10 +147,12 @@ XCOPY "$(ProjectDir)res\" "$(TargetDir)res\" /e /h /y /s
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Backgrounds\ZombieArena.cpp" />
     <ClCompile Include="src\Entities\Player.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Backgrounds\ZombieArena.h" />
     <ClInclude Include="src\Entities\Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
