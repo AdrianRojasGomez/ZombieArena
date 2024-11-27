@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "Entities/Player.h"
+#include "Backgrounds/ZombieArena.h"
 
 int main()
 {
@@ -22,9 +23,17 @@ int main()
 
 	sf::Vector2i mouseScreenPosition;
 
+	//player instance
 	Player player;
-
+	//arena bounds
 	sf::IntRect arena;
+	//Background creation
+	sf::VertexArray background;
+	sf::Texture textureBackground;
+
+	textureBackground.loadFromFile("res/assets/graphics/background_sheet.png");
+
+	
 
 	while (window.isOpen())
 	{
@@ -123,7 +132,7 @@ int main()
 				arena.left = 0;
 				arena.top = 0;
 
-				int tileSize = 50;
+				int tileSize = CreateBackground(background, arena);
 
 				player.Spawn(arena, resolution, tileSize);
 				clock.restart();
@@ -156,6 +165,7 @@ int main()
 		{
 			window.clear();
 			window.setView(mainView);
+			window.draw(background, &textureBackground);
 			window.draw(player.GetSprite());
 		}
 

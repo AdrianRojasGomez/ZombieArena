@@ -1,6 +1,6 @@
 #include "ZombieArena.h"
 
-int createBackground(sf::VertexArray& rVertexArray, sf::IntRect arena)
+int CreateBackground(sf::VertexArray& rVertexArray, sf::IntRect arena)
 {
 	//Set up Arena
 	const int TILE_SIZE = 50;
@@ -20,7 +20,7 @@ int createBackground(sf::VertexArray& rVertexArray, sf::IntRect arena)
 		for (int h = 0; h < worldHeight; h++)
 		{
 			rVertexArray[currentVertex + 0].position = 
-				sf::Vector2f((w * TILE_SIZE) + TILE_SIZE, h * TILE_SIZE);
+				sf::Vector2f(w * TILE_SIZE, h * TILE_SIZE);
 
 			rVertexArray[currentVertex + 1].position =
 				sf::Vector2f((w * TILE_SIZE) + TILE_SIZE, h * TILE_SIZE);
@@ -72,3 +72,4 @@ int createBackground(sf::VertexArray& rVertexArray, sf::IntRect arena)
 	return TILE_SIZE;
 
 }
+
